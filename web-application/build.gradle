@@ -1,0 +1,27 @@
+plugins {
+	id 'java'
+}
+
+allprojects {
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+group = 'ru.agapovla'
+version = '0.0.1-SNAPSHOT'
+description = 'SquareGame'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+}

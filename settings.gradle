@@ -1,0 +1,6 @@
+rootProject.name = 'SquareGame'
+
+include 'engine'
+include 'console-app'
+include 'web-service'
+include 'web-application'
