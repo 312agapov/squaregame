@@ -9,6 +9,8 @@ services:
     container_name: square-backend
     ports:
       - "8080:8080"
+    networks:
+      - app-network
 
   frontend:
     build:
@@ -20,3 +22,9 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
