@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'ru.agapovla'
@@ -19,6 +20,14 @@ dependencies {
 
 application {
     mainClass = 'ru.agapovla.squaregame.Main'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ru.agapovla.squaregame.Main'
+        )
+    }
 }
 
 java {

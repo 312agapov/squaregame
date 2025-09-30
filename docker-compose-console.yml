@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  console:
+    build:
+      context: .
+      dockerfile: console-app/Dockerfile
+    image: square-console
+    container_name: square-console
+    stdin_open: true
+    tty: true

@@ -124,30 +124,19 @@ public class SquareGameService {
         }
     }
 
-    public SimpleMoveDto move(int x, int y) {
+    public MoveResultDto move(int x, int y) {
         if (game == null || !game.isActive()) {
-            return null;
+            return new MoveResultDto(false, x, y, false, null, false);
         }
-
         if (game.current().getType() != PlayerType.USER) {
-            return null;
+            return new MoveResultDto(false, x, y, false, null, false);
         }
 
-        // цвет игрока, который делает ход
-        Color moveColor = game.current().getColor();
-
-        MoveResultDto moveResultDto = game.move(x, y);
-
+        MoveResultDto result = game.move(x, y);
         while (game.isActive() && game.current().getType() == PlayerType.COMPUTER) {
-            moveColor = game.current().getColor(); // для компа цвет будет другой
-            moveResultDto = game.compMove();
+            result = game.compMove();
         }
-
-        return new SimpleMoveDto(
-                moveResultDto.getX(),
-                moveResultDto.getY(),
-                moveColor.name().toLowerCase()
-        );
+        return result;
     }
 
     public String help(){

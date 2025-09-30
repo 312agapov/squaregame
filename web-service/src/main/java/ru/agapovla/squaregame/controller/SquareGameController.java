@@ -3,6 +3,7 @@ package ru.agapovla.squaregame.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.agapovla.squaregame.dto.BoardDto;
+import ru.agapovla.squaregame.dto.MoveResultDto;
 import ru.agapovla.squaregame.dto.SimpleMoveDto;
 import ru.agapovla.squaregame.service.SquareGameService;
 
@@ -26,7 +27,7 @@ public class SquareGameController {
     }
 
     @PostMapping("/move")
-    public SimpleMoveDto makeMove(@RequestParam int x, @RequestParam int y) {
+    public MoveResultDto makeMove(@RequestParam int x, @RequestParam int y) {
         return gameService.move(x, y);
     }
 
